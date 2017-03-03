@@ -1,0 +1,20 @@
+body{
+  text-align: center;
+  width: inherit;
+}
+
+div{
+  width: inherit;
+}
+
+.fib{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+}
+
+.inner{
+  display:flex;
+  flex-direction:row;
+}
