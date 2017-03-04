@@ -1,18 +1,10 @@
 document.getElementsByTagName("title")[0].innerHTML = "JavaScript Recursive Sequences";
 
+addStyles();
+addLinks();
 fibonacci(11);
 pell(11);
 tribonacci(11);
-
-/*var style = document.createElement('link');
-style.setAttribute('ref','stylesheet');
-style.setAttribute('type','text/css');
-style.setAttribute('href', 'style.css');
-document.head.appendChild(style);
-
-var test = document.createElement('style');
-test.innerHTML = ".fib{display:flex;flex-direction:column;}.inner{display:flex;flex-direction:row;}";
-document.head.appendChild(test);*/
 
 ///////////////////////////
 //  The Geometric Functions
@@ -25,8 +17,7 @@ function fibonacci(n){
 
 function fib(n){
   let div = document.createElement('div');
-  div.setAttribute('class', 'fib');
-  div.setAttribute('class', 'tree');
+  div.setAttribute('class', 'fib tree');
   let p = document.createElement('p');
 
   //base case
@@ -60,8 +51,7 @@ function pell(n){
 
 function pe(n){
   let div = document.createElement('div');
-  div.setAttribute('class', 'pell');
-  div.setAttribute('class', 'tree');
+  div.setAttribute('class', 'pell tree');
   let p = document.createElement('p');
 
   if (n <= 1){
@@ -94,8 +84,7 @@ function tribonacci(n){
 
 function tri(n){
   let div = document.createElement('div');
-  div.setAttribute('class', 'tri');
-  div.setAttribute('class', 'tree');
+  div.setAttribute('class', 'tri tree');
   let p = document.createElement('p');
 
   if (n <= 1){
@@ -133,4 +122,91 @@ function Div(id){
   div.setAttribute('id', id);
   document.body.appendChild(div);
   return div;
+}
+
+//creates links
+function addLinks(){
+  let p = document.createElement('p');
+  p.setAttribute('class','link');
+  let a1 = document.createElement('a');
+  a1.setAttribute('href','https://oeis.org/A000045');
+  let a2 = document.createElement('a');
+  a2.setAttribute('href','https://oeis.org/A000129');
+  let a3 = document.createElement('a');
+  a3.setAttribute('href','https://oeis.org/A000073');
+
+  p.innerHTML = 'Click for more details on: <br>';
+  a1.innerHTML = 'the fibonacci sequence<br>';
+  a2.innerHTML = 'the pell sequence<br>';
+  a3.innerHTML = 'the tribonacci sequence<br>'
+  p.appendChild(a1);
+  p.appendChild(a2);
+  p.appendChild(a3);
+
+  document.body.appendChild(p);
+}
+
+////////////////
+//  CSS
+///////////////
+function addStyles(){
+  let style = document.createElement('style');
+
+  style.textContent = "html{" +
+  "  display: flex;" +
+  "}" +
+  "" +
+  "body{" +
+  "  text-align: center;" +
+  "}" +
+  "" +
+  "" +
+  "p{" +
+  "  min-width: 75px;" +
+  "}" +
+  "" +
+  ".tree{" +
+  "  display: flex;" +
+  "  flex-direction: column;" +
+  "  flex: 1;" +
+  "  margin: 3px;" +
+  "}" +
+  "" +
+  ".inner{" +
+  "  display:flex;" +
+  "  flex-direction: row;" +
+  "  align-items: flex-start;" +
+  "}" +
+  "" +
+  ".link{" +
+  "  text-align: left;" +
+  "}" +
+  "" +
+  "#fibonacci{" +
+  "  background-color: rgb(255, 0, 0);" +
+  "  color:white;" +
+  "}" +
+  "" +
+  ".fib{" +
+  "  background-color: rgba(0,0,200,0.1);" +
+  "}" +
+  "" +
+  "#pell{" +
+  "  background-color: rgb(0,0,0);" +
+  "  color: white;" +
+  "}" +
+  "" +
+  ".pell{" +
+  "  background-color: rgba(128,128,128,0.1);" +
+  "}" +
+  "" +
+  "#tribonacci{" +
+  "  background-color: rgb(0, 100, 0);" +
+  "}" +
+  "" +
+  ".tri{" +
+  "  background-color: rgba(225, 225, 0, 0.15);" +
+  "}" +
+
+  document.head.appendChild(style);
 }
