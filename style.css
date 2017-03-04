@@ -1,20 +1,55 @@
+html{
+  display: flex;
+}
+
 body{
   text-align: center;
-  width: inherit;
 }
 
-div{
-  width: inherit;
+
+p{
+  min-width: 75px;
 }
 
-.fib{
+.tree{
   display: flex;
   flex-direction: column;
   flex: 1;
-  overflow: auto;
+  margin: 3px;
 }
 
 .inner{
   display:flex;
-  flex-direction:row;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.link{
+  text-align: left;
+}
+
+#fibonacci{
+  background-color: rgb(255, 0, 0);
+  color:white;
+}
+
+.fib{
+  background-color: rgba(0,0,200,0.1);
+}
+
+#pell{
+  background-color: rgb(0,0,0);
+  color: white;
+}
+
+.pell{
+  background-color: rgba(128,128,128,0.1);
+}
+
+#tribonacci{
+  background-color: rgb(0, 100, 0);
+}
+
+.tri{
+  background-color: rgba(225, 225, 0, 0.15);
 }
