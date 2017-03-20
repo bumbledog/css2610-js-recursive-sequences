@@ -1,18 +1,14 @@
 document.getElementsByTagName("title")[0].innerHTML = "JavaScript Recursive Sequences";
 
-addStyles();
 addLinks();
-fibonacci(11);
-pell(11);
-tribonacci(11);
 
 ///////////////////////////
 //  The Geometric Functions
 ///////////////////////////
 function fibonacci(n){
-  var fibDiv = Div('fibonacci');
+  var fibDiv = document.getElementById('fibonacci');
   let fibTree = fib(n);
-  fibDiv.appendChild(fibTree.html);
+  fibDiv.replaceChild(fibTree.html, fibDiv.lastChild);
 }
 
 function fib(n){
@@ -44,9 +40,9 @@ function fib(n){
 }
 
 function pell(n){
-  var pDiv = Div('pell')
+  var pDiv = document.getElementById('pell');
   let pellTree = pe(n);
-  pDiv.appendChild(pellTree.html);
+  pDiv.replaceChild(pellTree.html, pDiv.lastChild);
 }
 
 function pe(n){
@@ -77,9 +73,9 @@ function pe(n){
 }
 
 function tribonacci(n){
-  var triDiv = Div('tribonacci')
+  var triDiv = document.getElementById('tribonacci');
   let triTree = tri(n);
-  triDiv.appendChild(triTree.html);
+  triDiv.replaceChild(triTree.html, triDiv.lastChild);
 }
 
 function tri(n){
@@ -116,12 +112,10 @@ function tri(n){
   return {value: value, html: div};
 }
 
-//creates unique divs
-function Div(id){
-  let div = document.createElement('div');
-  div.setAttribute('id', id);
-  document.body.appendChild(div);
-  return div;
+function changeText(slider, name){
+  let target = slider.parentNode.querySelector('button');
+  //let target = document.getElementById(name);
+  target.textContent = name + "(" + slider.value + ")";
 }
 
 //creates links
@@ -144,69 +138,4 @@ function addLinks(){
   p.appendChild(a3);
 
   document.body.appendChild(p);
-}
-
-////////////////
-//  CSS
-///////////////
-function addStyles(){
-  let style = document.createElement('style');
-
-  style.textContent = "html{" +
-  "  display: flex;" +
-  "}" +
-  "" +
-  "body{" +
-  "  text-align: center;" +
-  "}" +
-  "" +
-  "" +
-  "p{" +
-  "  min-width: 75px;" +
-  "}" +
-  "" +
-  ".tree{" +
-  "  display: flex;" +
-  "  flex-direction: column;" +
-  "  flex: 1;" +
-  "  margin: 3px;" +
-  "}" +
-  "" +
-  ".inner{" +
-  "  display:flex;" +
-  "  flex-direction: row;" +
-  "  align-items: flex-start;" +
-  "}" +
-  "" +
-  ".link{" +
-  "  text-align: left;" +
-  "}" +
-  "" +
-  "#fibonacci{" +
-  "  background-color: rgb(255, 0, 0);" +
-  "  color:white;" +
-  "}" +
-  "" +
-  ".fib{" +
-  "  background-color: rgba(0,0,200,0.1);" +
-  "}" +
-  "" +
-  "#pell{" +
-  "  background-color: rgb(0,0,0);" +
-  "  color: white;" +
-  "}" +
-  "" +
-  ".pell{" +
-  "  background-color: rgba(128,128,128,0.1);" +
-  "}" +
-  "" +
-  "#tribonacci{" +
-  "  background-color: rgb(0, 100, 0);" +
-  "}" +
-  "" +
-  ".tri{" +
-  "  background-color: rgba(225, 225, 0, 0.15);" +
-  "}" +
-
-  document.head.appendChild(style);
 }
